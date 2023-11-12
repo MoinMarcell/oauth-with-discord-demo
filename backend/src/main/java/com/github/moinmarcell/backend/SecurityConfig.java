@@ -1,5 +1,6 @@
 package com.github.moinmarcell.backend;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,9 @@ import org.springframework.web.client.RestTemplate;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Value("${com.github.moinmarcell.url}")
+    private String url;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -22,10 +26,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(a -> a
                         .anyRequest().permitAll()
                 )
+                .logout(l -> l.logoutSuccessUrl(url).permitAll())
                 .exceptionHandling(e -> e.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .oauth2Login(c -> {
                     c.tokenEndpoint(t -> t.accessTokenResponseClient(new RestOAuth2AccessTokenResponseClient(restOperations())));
                     c.userInfoEndpoint(u -> u.userService(new RestOAuth2UserService(restOperations())));
+                    c.defaultSuccessUrl(url, true);
                 });
         return http.build();
     }

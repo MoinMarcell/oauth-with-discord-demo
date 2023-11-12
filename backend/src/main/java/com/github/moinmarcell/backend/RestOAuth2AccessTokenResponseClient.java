@@ -61,27 +61,27 @@ public class RestOAuth2AccessTokenResponseClient implements OAuth2AccessTokenRes
                 .build();
     }
 
-    @Getter
     static class AccessResponse {
+        @Getter
         @JsonProperty("access_token")
         private String accessToken;
 
         @JsonProperty("token_type")
         private String tokenType;
 
+        @Getter
         @JsonProperty("expires_in")
         private int expiresIn;
 
-        @JsonProperty("refresh_token")
-        private String refreshToken;
+        private String scope;
 
-        private final String scope;
+        public AccessResponse() {
+        }
 
-        AccessResponse(String accessToken, String tokenType, int expiresIn, String refreshToken, String scope) {
+        AccessResponse(String accessToken, String tokenType, int expiresIn, String scope) {
             this.accessToken = accessToken;
             this.tokenType = tokenType;
             this.expiresIn = expiresIn;
-            this.refreshToken = refreshToken;
             this.scope = scope;
         }
 

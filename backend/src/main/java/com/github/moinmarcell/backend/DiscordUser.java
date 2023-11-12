@@ -1,4 +1,4 @@
 package com.github.moinmarcell.backend;
 
-public record DiscordUser(String username, String avatar) {
+public record DiscordUser(String id, String username, String avatar) {
 }

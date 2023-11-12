@@ -16,6 +16,7 @@ public class AuthController {
     public DiscordUser me(@AuthenticationPrincipal OAuth2User principal) {
         if (principal instanceof DefaultOAuth2User defaultOAuth2User) {
             return new DiscordUser(
+                    defaultOAuth2User.getAttribute("id"),
                     defaultOAuth2User.getAttribute("username"),
                     defaultOAuth2User.getAttribute("avatar")
             );

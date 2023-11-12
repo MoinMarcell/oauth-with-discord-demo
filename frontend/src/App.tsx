@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 type DiscordUser = {
+    id: string,
     username: string,
     avatar: string,
 }
@@ -35,7 +36,7 @@ function App() {
                         <div>
                             <h1>Welcome, {discordUser.username}!</h1>
                             <img
-                                src={`https://cdn.discordapp.com/avatars/${discordUser.username}/${discordUser.avatar}.png`}
+                                src={`https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`}
                                 alt={discordUser.username}/>
                             <br/>
                             <button onClick={logout}>Logout</button>

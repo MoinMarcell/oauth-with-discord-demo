@@ -19,21 +19,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable)
-                .logout(l -> l.logoutSuccessUrl("/").permitAll())
                 .authorizeHttpRequests(a -> a
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .exceptionHandling(e -> e.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .oauth2Login(c -> {
-                    try {
-                        c.init(http);
-                        c.tokenEndpoint(t -> t.accessTokenResponseClient(new RestOAuth2AccessTokenResponseClient(restOperations())));
-                        c.userInfoEndpoint(u -> u.userService(new RestOAuth2UserService(restOperations())));
-                        c.defaultSuccessUrl("/", true);
-                    } catch (Exception e) {
-                        throw new IllegalArgumentException(e);
-                    }
+                    c.tokenEndpoint(t -> t.accessTokenResponseClient(new RestOAuth2AccessTokenResponseClient(restOperations())));
+                    c.userInfoEndpoint(u -> u.userService(new RestOAuth2UserService(restOperations())));
                 });
         return http.build();
     }

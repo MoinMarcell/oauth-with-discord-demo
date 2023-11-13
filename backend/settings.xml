@@ -2,6 +2,6 @@
     <server>
         <id>oauth-with-discord-demo</id>
         <username>moinmarcell</username>
-        <password>${env.TOKEN}</password>
+        <password>${env.GITHUB_TOKEN}</password>
     </server>
 </servers>

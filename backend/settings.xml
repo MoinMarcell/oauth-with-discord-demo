@@ -1,7 +1,7 @@
 <servers>
     <server>
         <id>oauth-with-discord-demo</id>
-        <username>${env.GITHUB_ACTOR}</username>
-        <password>${env.GITHUB_TOKEN}</password>
+        <username>moinmarcell</username>
+        <password>${env.TOKEN}</password>
     </server>
 </servers>

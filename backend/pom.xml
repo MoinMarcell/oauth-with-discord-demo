@@ -5,7 +5,7 @@
     <distributionManagement>
         <repository>
             <id>oauth-with-discord-demo</id>
-            <url>https://maven.pkg.github.com/MoinMarcell/oauth-with-discord-demo</url>
+            <url>https://github.com/MoinMarcell/oauth-with-discord-demo</url>
         </repository>
     </distributionManagement>
 

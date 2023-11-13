@@ -5,9 +5,10 @@
     <distributionManagement>
         <repository>
             <id>oauth-with-discord-demo</id>
-            <url>https://github.com/MoinMarcell/oauth-with-discord-demo</url>
+            <url>https://maven.pkg.github.com/MoinMarcell/oauth-with-discord-demo</url>
         </repository>
     </distributionManagement>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

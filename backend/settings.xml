@@ -1,4 +1,5 @@
-<!--<settings>
+<!--
+<settings>
     <servers>
         <server>
             <id>oauth-with-discord-demo</id>
@@ -7,21 +8,35 @@
         </server>
     </servers>
 </settings>-->
-<profile>
-    <id>github</id>
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo1.maven.org/maven2</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-        <repository>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <profiles>
+        <profile>
             <id>github</id>
-            <name>moinmarcell</name>
-            <url>https://maven.pkg.github.com/moinmarcell/oauth2-discord-demo</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-    </repositories>
-</profile>
+            <repositories>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/MoinMarcell/oauth-with-discord-demo</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <servers>
+        <server>
+            <id>github</id> <!-- Diese ID muss mit der ID des Repository-Tags übereinstimmen -->
+            <username>moinmarcell</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+    </servers>
+
+    <activeProfiles>
+        <activeProfile>github</activeProfile>
+    </activeProfiles>
+</settings>
+

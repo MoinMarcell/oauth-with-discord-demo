@@ -45,6 +45,15 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>oauth-with-discord-demo</id> <!-- Eindeutige ID für das Repository -->
+            <name>oauth-with-discord-demo</name>
+            <url>https://maven.pkg.github.com/MoinMarcell/oauth-with-discord-demo</url>
+        </repository>
+    </repositories>
+
+
     <build>
         <plugins>
             <plugin>

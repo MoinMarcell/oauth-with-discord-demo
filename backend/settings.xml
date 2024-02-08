@@ -36,7 +36,7 @@
     </servers>
 
     <activeProfiles>
-        <activeProfile>github</activeProfile>
+        <activeProfile>oauth-with-discord-demo</activeProfile>
     </activeProfiles>
 </settings>
 

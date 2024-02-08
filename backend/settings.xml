@@ -14,10 +14,10 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
     <profiles>
         <profile>
-            <id>github</id>
+            <id>oauth-with-discord-demo</id>
             <repositories>
                 <repository>
-                    <id>github</id>
+                    <id>oauth-with-discord-demo</id>
                     <name>GitHub Apache Maven Packages</name>
                     <url>https://maven.pkg.github.com/MoinMarcell/oauth-with-discord-demo</url>
                     <releases><enabled>true</enabled></releases>
@@ -29,7 +29,7 @@
 
     <servers>
         <server>
-            <id>github</id> <!-- Diese ID muss mit der ID des Repository-Tags übereinstimmen -->
+            <id>oauth-with-discord-demo</id> <!-- Diese ID muss mit der ID des Repository-Tags übereinstimmen -->
             <username>moinmarcell</username>
             <password>${env.GITHUB_TOKEN}</password>
         </server>
